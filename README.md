@@ -30,8 +30,9 @@ Small Django REST API for managing users, roles, financial records, and dashboar
 4. Start the server.
 
 ```bash
-python manage.py migrate
-python manage.py runserver
+uv sync
+uv run manage.py migrate
+uv run manage.py runserver
 ```
 
 Default local database is SQLite.

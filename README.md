@@ -30,6 +30,7 @@ Small Django REST API for managing users, roles, financial records, and dashboar
 4. Start the server.
 
 ```bash
+uv sync
 uv run manage.py migrate
 uv run manage.py runserver
 ```

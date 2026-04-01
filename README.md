@@ -65,6 +65,41 @@ Use the access token as:
 Authorization: Bearer <token>
 ```
 
+## RBAC
+
+The API uses role-based access control.
+
+- each `User` belongs to a `Role`
+- each `Role` stores boolean permission flags
+- permissions are enforced in DRF permission classes
+- users without authentication are denied
+- users without a role are denied
+- the `Admin` role is treated as a full-access override
+
+Current permission groups in the system:
+
+- dashboard permissions: `can_view_dashboard`, `can_create_dashboard`, `can_edit_dashboard`, `can_delete_dashboard`
+- record permissions: `can_view_record`, `can_create_record`, `can_edit_record`, `can_delete_record`
+- summary permissions: `can_view_summary`
+- insights flag: `can_access_insights`
+
+Endpoint access is controlled by permission class:
+
+- users and roles endpoints use admin-only access
+- records endpoints use record CRUD permissions based on HTTP method
+- summary endpoints use summary read permission
+
+For records:
+
+- `GET` requires `can_view_record`
+- `POST` requires `can_create_record`
+- `PUT/PATCH` requires `can_edit_record`
+- `DELETE` requires `can_delete_record`
+
+For summary endpoints:
+
+- `GET` requires `can_view_summary`
+
 ## API Docs
 
 - Swagger UI: `/api/docs/swagger/`

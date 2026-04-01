@@ -66,6 +66,20 @@ Use the access token as:
 Authorization: Bearer <token>
 ```
 
+On startup, the app seeds a default admin user if it does not already exist.
+
+- username: `admin`
+- password: `admin123`
+
+These can be overridden with:
+
+```env
+SEED_ADMIN_USERNAME=admin
+SEED_ADMIN_PASSWORD=admin123
+SEED_ADMIN_FIRST_NAME=System
+SEED_ADMIN_LAST_NAME=Admin
+```
+
 ## RBAC
 
 The API uses role-based access control.

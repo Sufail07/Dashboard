@@ -35,7 +35,6 @@ uv run manage.py migrate
 uv run manage.py runserver
 ```
 
-Default local database is SQLite.
 
 ## PostgreSQL
 
